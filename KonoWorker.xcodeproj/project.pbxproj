@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E888BA231FBE9418001B231A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA221FBE9418001B231A /* AppDelegate.m */; };
+		E888BA261FBE9418001B231A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA251FBE9418001B231A /* ViewController.m */; };
+		E888BA291FBE9418001B231A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA271FBE9418001B231A /* Main.storyboard */; };
+		E888BA2B1FBE9418001B231A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E888BA2A1FBE9418001B231A /* Assets.xcassets */; };
+		E888BA2E1FBE9418001B231A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */; };
+		E888BA311FBE9418001B231A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA301FBE9418001B231A /* main.m */; };
+		E888BA3B1FBE9418001B231A /* KonoWorkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA3A1FBE9418001B231A /* KonoWorkerTests.m */; };
+		E888BA461FBE9418001B231A /* KonoWorkerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA451FBE9418001B231A /* KonoWorkerUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E888BA371FBE9418001B231A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E888BA161FBE9418001B231A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E888BA1D1FBE9418001B231A;
+			remoteInfo = KonoWorker;
+		};
+		E888BA421FBE9418001B231A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E888BA161FBE9418001B231A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E888BA1D1FBE9418001B231A;
+			remoteInfo = KonoWorker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E888BA1E1FBE9418001B231A /* KonoWorker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonoWorker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E888BA211FBE9418001B231A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E888BA221FBE9418001B231A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E888BA241FBE9418001B231A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E888BA251FBE9418001B231A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E888BA281FBE9418001B231A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E888BA2A1FBE9418001B231A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E888BA2D1FBE9418001B231A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E888BA2F1FBE9418001B231A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E888BA301FBE9418001B231A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E888BA361FBE9418001B231A /* KonoWorkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonoWorkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E888BA3A1FBE9418001B231A /* KonoWorkerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonoWorkerTests.m; sourceTree = "<group>"; };
+		E888BA3C1FBE9418001B231A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E888BA411FBE9418001B231A /* KonoWorkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonoWorkerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E888BA451FBE9418001B231A /* KonoWorkerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonoWorkerUITests.m; sourceTree = "<group>"; };
+		E888BA471FBE9418001B231A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E888BA1B1FBE9418001B231A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA331FBE9418001B231A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA3E1FBE9418001B231A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E888BA151FBE9418001B231A = {
+			isa = PBXGroup;
+			children = (
+				E888BA201FBE9418001B231A /* KonoWorker */,
+				E888BA391FBE9418001B231A /* KonoWorkerTests */,
+				E888BA441FBE9418001B231A /* KonoWorkerUITests */,
+				E888BA1F1FBE9418001B231A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E888BA1F1FBE9418001B231A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E888BA1E1FBE9418001B231A /* KonoWorker.app */,
+				E888BA361FBE9418001B231A /* KonoWorkerTests.xctest */,
+				E888BA411FBE9418001B231A /* KonoWorkerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E888BA201FBE9418001B231A /* KonoWorker */ = {
+			isa = PBXGroup;
+			children = (
+				E888BA211FBE9418001B231A /* AppDelegate.h */,
+				E888BA221FBE9418001B231A /* AppDelegate.m */,
+				E888BA241FBE9418001B231A /* ViewController.h */,
+				E888BA251FBE9418001B231A /* ViewController.m */,
+				E888BA271FBE9418001B231A /* Main.storyboard */,
+				E888BA2A1FBE9418001B231A /* Assets.xcassets */,
+				E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */,
+				E888BA2F1FBE9418001B231A /* Info.plist */,
+				E888BA301FBE9418001B231A /* main.m */,
+			);
+			path = KonoWorker;
+			sourceTree = "<group>";
+		};
+		E888BA391FBE9418001B231A /* KonoWorkerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E888BA3A1FBE9418001B231A /* KonoWorkerTests.m */,
+				E888BA3C1FBE9418001B231A /* Info.plist */,
+			);
+			path = KonoWorkerTests;
+			sourceTree = "<group>";
+		};
+		E888BA441FBE9418001B231A /* KonoWorkerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E888BA451FBE9418001B231A /* KonoWorkerUITests.m */,
+				E888BA471FBE9418001B231A /* Info.plist */,
+			);
+			path = KonoWorkerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E888BA1D1FBE9418001B231A /* KonoWorker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E888BA4A1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorker" */;
+			buildPhases = (
+				E888BA1A1FBE9418001B231A /* Sources */,
+				E888BA1B1FBE9418001B231A /* Frameworks */,
+				E888BA1C1FBE9418001B231A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KonoWorker;
+			productName = KonoWorker;
+			productReference = E888BA1E1FBE9418001B231A /* KonoWorker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E888BA351FBE9418001B231A /* KonoWorkerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E888BA4D1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerTests" */;
+			buildPhases = (
+				E888BA321FBE9418001B231A /* Sources */,
+				E888BA331FBE9418001B231A /* Frameworks */,
+				E888BA341FBE9418001B231A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E888BA381FBE9418001B231A /* PBXTargetDependency */,
+			);
+			name = KonoWorkerTests;
+			productName = KonoWorkerTests;
+			productReference = E888BA361FBE9418001B231A /* KonoWorkerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E888BA401FBE9418001B231A /* KonoWorkerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E888BA501FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerUITests" */;
+			buildPhases = (
+				E888BA3D1FBE9418001B231A /* Sources */,
+				E888BA3E1FBE9418001B231A /* Frameworks */,
+				E888BA3F1FBE9418001B231A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E888BA431FBE9418001B231A /* PBXTargetDependency */,
+			);
+			name = KonoWorkerUITests;
+			productName = KonoWorkerUITests;
+			productReference = E888BA411FBE9418001B231A /* KonoWorkerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E888BA161FBE9418001B231A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Kono;
+				TargetAttributes = {
+					E888BA1D1FBE9418001B231A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					E888BA351FBE9418001B231A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E888BA1D1FBE9418001B231A;
+					};
+					E888BA401FBE9418001B231A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E888BA1D1FBE9418001B231A;
+					};
+				};
+			};
+			buildConfigurationList = E888BA191FBE9418001B231A /* Build configuration list for PBXProject "KonoWorker" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E888BA151FBE9418001B231A;
+			productRefGroup = E888BA1F1FBE9418001B231A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E888BA1D1FBE9418001B231A /* KonoWorker */,
+				E888BA351FBE9418001B231A /* KonoWorkerTests */,
+				E888BA401FBE9418001B231A /* KonoWorkerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E888BA1C1FBE9418001B231A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E888BA2E1FBE9418001B231A /* LaunchScreen.storyboard in Resources */,
+				E888BA2B1FBE9418001B231A /* Assets.xcassets in Resources */,
+				E888BA291FBE9418001B231A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA341FBE9418001B231A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA3F1FBE9418001B231A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E888BA1A1FBE9418001B231A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E888BA261FBE9418001B231A /* ViewController.m in Sources */,
+				E888BA311FBE9418001B231A /* main.m in Sources */,
+				E888BA231FBE9418001B231A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA321FBE9418001B231A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E888BA3B1FBE9418001B231A /* KonoWorkerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E888BA3D1FBE9418001B231A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E888BA461FBE9418001B231A /* KonoWorkerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E888BA381FBE9418001B231A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E888BA1D1FBE9418001B231A /* KonoWorker */;
+			targetProxy = E888BA371FBE9418001B231A /* PBXContainerItemProxy */;
+		};
+		E888BA431FBE9418001B231A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E888BA1D1FBE9418001B231A /* KonoWorker */;
+			targetProxy = E888BA421FBE9418001B231A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E888BA271FBE9418001B231A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E888BA281FBE9418001B231A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E888BA2D1FBE9418001B231A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E888BA481FBE9418001B231A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E888BA491FBE9418001B231A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E888BA4B1FBE9418001B231A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E888BA4C1FBE9418001B231A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E888BA4E1FBE9418001B231A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorkerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorkerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KonoWorker.app/KonoWorker";
+			};
+			name = Debug;
+		};
+		E888BA4F1FBE9418001B231A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorkerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorkerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KonoWorker.app/KonoWorker";
+			};
+			name = Release;
+		};
+		E888BA511FBE9418001B231A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorkerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorkerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KonoWorker;
+			};
+			name = Debug;
+		};
+		E888BA521FBE9418001B231A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KSFL9L3S98;
+				INFOPLIST_FILE = KonoWorkerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorkerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KonoWorker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E888BA191FBE9418001B231A /* Build configuration list for PBXProject "KonoWorker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E888BA481FBE9418001B231A /* Debug */,
+				E888BA491FBE9418001B231A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E888BA4A1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E888BA4B1FBE9418001B231A /* Debug */,
+				E888BA4C1FBE9418001B231A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E888BA4D1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E888BA4E1FBE9418001B231A /* Debug */,
+				E888BA4F1FBE9418001B231A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E888BA501FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E888BA511FBE9418001B231A /* Debug */,
+				E888BA521FBE9418001B231A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E888BA161FBE9418001B231A /* Project object */;
+}
