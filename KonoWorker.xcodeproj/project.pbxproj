@@ -120,6 +120,7 @@
 				E888BA251FBE9418001B231A /* KWLoginViewController.m */,
 				E888BA531FBE9A1F001B231A /* GoogleService-Info.plist */,
 				E888BA2F1FBE9418001B231A /* Info.plist */,
+				E888BA2A1FBE9418001B231A /* Assets.xcassets */,
 				E888BA301FBE9418001B231A /* main.m */,
 			);
 			path = KonoWorker;
