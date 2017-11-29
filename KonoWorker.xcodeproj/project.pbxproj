@@ -15,6 +15,7 @@
 		E888BA311FBE9418001B231A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA301FBE9418001B231A /* main.m */; };
 		E888BA3B1FBE9418001B231A /* KonoWorkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA3A1FBE9418001B231A /* KonoWorkerTests.m */; };
 		E888BA461FBE9418001B231A /* KonoWorkerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA451FBE9418001B231A /* KonoWorkerUITests.m */; };
+		E888BA541FBE9A1F001B231A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E888BA531FBE9A1F001B231A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09B59BD305D01390021B5E7A /* Pods-KonoWorkerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorkerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorkerTests/Pods-KonoWorkerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		22731F9C7D98E06904EFFE7B /* Pods-KonoWorker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorker.release.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorker/Pods-KonoWorker.release.xcconfig"; sourceTree = "<group>"; };
+		2392307D3DDCB467F23EFF08 /* Pods-KonoWorkerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorkerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorkerTests/Pods-KonoWorkerTests.release.xcconfig"; sourceTree = "<group>"; };
+		27A980E785E9BA05FEB6B70C /* libPods-KonoWorker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KonoWorker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6D09939020DDBAC0DBD752 /* Pods-KonoWorkerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorkerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorkerUITests/Pods-KonoWorkerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		96978F1EFB11AEA6B479C57C /* libPods-KonoWorkerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KonoWorkerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE74C1AD055FE29AFB8AF6A /* libPods-KonoWorkerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KonoWorkerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D91515EBF22AB7098ECBB38E /* Pods-KonoWorkerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorkerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorkerUITests/Pods-KonoWorkerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB3E6DE1DDA167B9265745B6 /* Pods-KonoWorker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorker/Pods-KonoWorker.debug.xcconfig"; sourceTree = "<group>"; };
 		E888BA1E1FBE9418001B231A /* KonoWorker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonoWorker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888BA211FBE9418001B231A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E888BA221FBE9418001B231A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +61,7 @@
 		E888BA411FBE9418001B231A /* KonoWorkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonoWorkerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888BA451FBE9418001B231A /* KonoWorkerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonoWorkerUITests.m; sourceTree = "<group>"; };
 		E888BA471FBE9418001B231A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E888BA531FBE9A1F001B231A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +96,8 @@
 				E888BA391FBE9418001B231A /* KonoWorkerTests */,
 				E888BA441FBE9418001B231A /* KonoWorkerUITests */,
 				E888BA1F1FBE9418001B231A /* Products */,
+				2EC76AFFC03DF225DD019CE7 /* Pods */,
+				DD33B86166DAAE6703F605F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +118,7 @@
 				E888BA221FBE9418001B231A /* AppDelegate.m */,
 				E888BA241FBE9418001B231A /* KWLoginViewController.h */,
 				E888BA251FBE9418001B231A /* KWLoginViewController.m */,
+				E888BA531FBE9A1F001B231A /* GoogleService-Info.plist */,
 				E888BA2F1FBE9418001B231A /* Info.plist */,
 				E888BA301FBE9418001B231A /* main.m */,
 			);
@@ -145,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E888BA4A1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorker" */;
 			buildPhases = (
+				4D3F40B840974F427371FB1E /* [CP] Check Pods Manifest.lock */,
 				E888BA1A1FBE9418001B231A /* Sources */,
 				E888BA1B1FBE9418001B231A /* Frameworks */,
 				E888BA1C1FBE9418001B231A /* Resources */,
+				192DAD7F5028008AD810E602 /* [CP] Embed Pods Frameworks */,
+				472FC96631894A0362D141EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E888BA4D1FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerTests" */;
 			buildPhases = (
+				5E86BF498B844EB7B30B153A /* [CP] Check Pods Manifest.lock */,
 				E888BA321FBE9418001B231A /* Sources */,
 				E888BA331FBE9418001B231A /* Frameworks */,
 				E888BA341FBE9418001B231A /* Resources */,
+				A3D8A8C8C43727A7E85BE6D9 /* [CP] Embed Pods Frameworks */,
+				A19AEE2AB5BF205DBC4DF20B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E888BA501FBE9418001B231A /* Build configuration list for PBXNativeTarget "KonoWorkerUITests" */;
 			buildPhases = (
+				5794040F477C537D73ABA981 /* [CP] Check Pods Manifest.lock */,
 				E888BA3D1FBE9418001B231A /* Sources */,
 				E888BA3E1FBE9418001B231A /* Frameworks */,
 				E888BA3F1FBE9418001B231A /* Resources */,
+				87A4C5B10A0850F632C633A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +269,7 @@
 				E888BA2E1FBE9418001B231A /* LaunchScreen.storyboard in Resources */,
 				E888BA2B1FBE9418001B231A /* Assets.xcassets in Resources */,
 				E888BA291FBE9418001B231A /* Main.storyboard in Resources */,
+				E888BA541FBE9A1F001B231A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,14 +289,146 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		192DAD7F5028008AD810E602 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KonoWorker/Pods-KonoWorker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		472FC96631894A0362D141EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KonoWorker/Pods-KonoWorker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D3F40B840974F427371FB1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5794040F477C537D73ABA981 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E86BF498B844EB7B30B153A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		87A4C5B10A0850F632C633A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KonoWorkerUITests/Pods-KonoWorkerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A19AEE2AB5BF205DBC4DF20B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KonoWorkerTests/Pods-KonoWorkerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3D8A8C8C43727A7E85BE6D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KonoWorkerTests/Pods-KonoWorkerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E888BA1A1FBE9418001B231A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E888BA781FCD183F001B231A /* KWNetworkManager.m in Sources */,
 				E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */,
 				E888BA311FBE9418001B231A /* main.m in Sources */,
+				E888BA5F1FC40075001B231A /* KWAttendanceDataViewController.m in Sources */,
+				E888BA751FCD0620001B231A /* KWMainViewController.m in Sources */,
+				E888BA621FC6722C001B231A /* KWUtil.m in Sources */,
+				E888BA6A1FCC0905001B231A /* KWLocationManager.m in Sources */,
+				E888BA721FCD0335001B231A /* KWWorker.m in Sources */,
+				E888BA6E1FCC190A001B231A /* KWAttendanceTableViewCell.m in Sources */,
+				E888BA591FC3DD07001B231A /* KWLocalDatabase.m in Sources */,
 				E888BA231FBE9418001B231A /* AppDelegate.m in Sources */,
+				E888BA5C1FC3E188001B231A /* KWAttendanceRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

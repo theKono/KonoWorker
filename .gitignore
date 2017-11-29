@@ -1,0 +1,13 @@
+#Xcode
+.DS_Store
+*.xcuserstate
+xcuserdata/
+
+#CocoaPods
+*.swp
+*.swo
+*.rbo
+*.gem
+
+Pods/*
+
