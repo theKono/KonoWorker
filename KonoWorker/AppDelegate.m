@@ -7,8 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "KWWorker.h"
+#import "KWLocalDatabase.h"
+#import "KWLocationManager.h"
+#import "KWUtil.h"
+#import <Google/SignIn.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+@property (strong, nonatomic) KWLocationManager *locationManager;
 
 @end
 
@@ -17,6 +25,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSError* configureError;
+    [[GGLContext sharedInstance] configureWithError: &configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    [KWLocalDatabase initRealmConfiguration];
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    
+    self.locationManager = [KWLocationManager sharedInstance];
+    self.locationManager.delegate = self;
+    
+    
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
+    }
+    
+    [self initRegion];
+    
     return YES;
 }
 
@@ -46,6 +76,89 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+
+#pragma mark - iBeacon
+- (void)initRegion {
+    
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B5B182C7-EAB1-4988-AA99-B5C1517008D9"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:uuid.UUIDString];
+    self.beaconRegion.notifyOnEntry = YES;
+    self.beaconRegion.notifyOnExit = YES;
+    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
+
+    [self.locationManager requestStateForRegion:region];
+    /*
+    if ([beacons count]) {
+        NSLog(@"beacon:%@  region:%@",[beacons firstObject],region);
+        CLBeacon *monitorBeacon = [beacons firstObject];
+        
+    }
+     */
+}
+
+-(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    
+    KWWorker *currentWorker = [KWWorker worker];
+    
+    if (currentWorker.userID) {
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+
+        KWLocationStatus currentStatus = [self.locationManager getCurrentLocationStatus:state];
+        BOOL isValidUpdate = NO;
+        
+        if ( KWLocationStatusEnterConfirmed == currentStatus ) {
+            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+            isValidUpdate = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withStartTime:[NSDate date]];
+            notification.alertBody = @"Hello~ Work fun!";
+            
+        }
+        else if (KWLocationStatusLeaveConfirmed == currentStatus ) {
+            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+            isValidUpdate = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withLeaveTime:[NSDate date]];
+            notification.alertBody = @"Bye! Have a good day~";
+        }
+        
+        if (YES == isValidUpdate) {
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
+    }
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    //[self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    [self.locationManager requestStateForRegion:region];
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    
+    //[self.locationManager requestStateForRegion:region];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    
+    //[self.locationManager requestStateForRegion:region];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+}
+
 
 
 @end
