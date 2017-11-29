@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E888BA231FBE9418001B231A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA221FBE9418001B231A /* AppDelegate.m */; };
-		E888BA261FBE9418001B231A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA251FBE9418001B231A /* ViewController.m */; };
+		E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA251FBE9418001B231A /* KWLoginViewController.m */; };
 		E888BA291FBE9418001B231A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA271FBE9418001B231A /* Main.storyboard */; };
 		E888BA2B1FBE9418001B231A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E888BA2A1FBE9418001B231A /* Assets.xcassets */; };
 		E888BA2E1FBE9418001B231A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */; };
@@ -38,8 +38,8 @@
 		E888BA1E1FBE9418001B231A /* KonoWorker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonoWorker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888BA211FBE9418001B231A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E888BA221FBE9418001B231A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E888BA241FBE9418001B231A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E888BA251FBE9418001B231A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E888BA241FBE9418001B231A /* KWLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWLoginViewController.h; sourceTree = "<group>"; };
+		E888BA251FBE9418001B231A /* KWLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KWLoginViewController.m; sourceTree = "<group>"; };
 		E888BA281FBE9418001B231A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E888BA2A1FBE9418001B231A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E888BA2D1FBE9418001B231A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,11 +103,8 @@
 			children = (
 				E888BA211FBE9418001B231A /* AppDelegate.h */,
 				E888BA221FBE9418001B231A /* AppDelegate.m */,
-				E888BA241FBE9418001B231A /* ViewController.h */,
-				E888BA251FBE9418001B231A /* ViewController.m */,
-				E888BA271FBE9418001B231A /* Main.storyboard */,
-				E888BA2A1FBE9418001B231A /* Assets.xcassets */,
-				E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */,
+				E888BA241FBE9418001B231A /* KWLoginViewController.h */,
+				E888BA251FBE9418001B231A /* KWLoginViewController.m */,
 				E888BA2F1FBE9418001B231A /* Info.plist */,
 				E888BA301FBE9418001B231A /* main.m */,
 			);
@@ -130,6 +127,15 @@
 				E888BA471FBE9418001B231A /* Info.plist */,
 			);
 			path = KonoWorkerUITests;
+			sourceTree = "<group>";
+		};
+		E888BA671FCC08B9001B231A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E888BA271FBE9418001B231A /* Main.storyboard */,
+				E888BA2C1FBE9418001B231A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E888BA261FBE9418001B231A /* ViewController.m in Sources */,
+				E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */,
 				E888BA311FBE9418001B231A /* main.m in Sources */,
 				E888BA231FBE9418001B231A /* AppDelegate.m in Sources */,
 			);
