@@ -103,6 +103,14 @@ static NSString *cellIdentifier = @"cellIdentifier";
         displayCell.leaveTimeLabel.text = @"Leave time: N/A";
     }
     else {
+        
+        if (record.isWorkOutside == YES) {
+            displayCell.backgroundColor = [UIColor colorWithRed:246/255.0 green:243/255.0 blue:237/255.0 alpha:1.0];
+        }
+        else {
+            displayCell.backgroundColor = [UIColor clearColor];
+        }
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterNoStyle];
         [formatter setTimeStyle:NSDateFormatterMediumStyle];
@@ -110,9 +118,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
         NSString *startTime = [formatter stringFromDate:record.startTime];
         NSString *leaveTime = [formatter stringFromDate:record.leaveTime];
         
-        displayCell.backgroundColor = [UIColor clearColor];
-        
-        displayCell.workDayLabel.text = record.workDate;
+        displayCell.workDayLabel.text = [NSString stringWithFormat:@"%@ work at %@", record.workDate,record.workLocation];
         displayCell.enterTimeLabel.text = [NSString stringWithFormat:@"Start time:%@",startTime];
         displayCell.leaveTimeLabel.text = [NSString stringWithFormat:@"Leave time:%@",leaveTime];
     }
