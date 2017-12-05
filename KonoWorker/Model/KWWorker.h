@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KWLocalDatabase.h"
 
 @interface KWWorker : NSObject
 
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSString *userImageURLString;
 
 + (KWWorker *)worker;
+
+- (void)postLeaveNotificationWithStatus:(KELeaveRecordStatus)status;
 
 - (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration;
 

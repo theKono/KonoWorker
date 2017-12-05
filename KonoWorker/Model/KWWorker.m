@@ -118,6 +118,30 @@
     
 }
 
+- (void)postLeaveNotificationWithStatus:(KELeaveRecordStatus)status {
+    
+    if (status == KELeaveRecordStatusInvalid ||
+        status == KELeaveRecordStatusIntermediate) {
+        return;
+    }
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    switch (status) {
+        case KELeaveRecordStatus6HR:
+            notification.alertBody = @"Time to leave? Have a nice day~ Bye!";
+            break;
+        case KELeaveRecordStatus8HRAbove:
+            notification.alertBody = @"You work so hard today!!! Tomorrow would be better~";
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+
 - (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration {
     
     NSString *urlPath = @"https://hooks.slack.com/services/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";
