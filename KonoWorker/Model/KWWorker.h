@@ -20,6 +20,6 @@
 
 - (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration;
 
-- (void)postWorkFromHomeMessageToSlack;
+- (void)postWorkOutsideMessageToSlack:(NSString *)location withStartTime:(NSString *)startTime withEndTime:(NSString *)endTime;
 
 @end

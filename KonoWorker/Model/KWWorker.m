@@ -135,12 +135,12 @@
     
 }
 
-- (void)postWorkFromHomeMessageToSlack {
+- (void)postWorkOutsideMessageToSlack:(NSString *)location withStartTime:(NSString *)startTime withEndTime:(NSString *)endTime {
     
     NSString *urlPath = @"https://hooks.slack.com/services/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";
     
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] init];
-    [paraDic setObject:[NSString stringWithFormat:@"Work from home %@",[KWUtil getTodayDateString]] forKey:@"text"];
+    [paraDic setObject:[NSString stringWithFormat:@"Work %@ from %@ to %@",location,startTime,endTime] forKey:@"text"];
     [paraDic setObject:self.userName forKey:@"username"];
     
     [self.manager POST:urlPath parameters:paraDic progress:nil success:^(NSURLSessionTask *task, id responseDic) {
