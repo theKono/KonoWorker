@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomeMsgLabel;
 @property (weak, nonatomic) IBOutlet UIButton *attendanceRecordBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ptoBtn;
-@property (weak, nonatomic) IBOutlet UIButton *workFromHomeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *workOutsideBtn;
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @end
 
@@ -121,10 +122,58 @@
     
 }
 
-- (IBAction)workFromBtnPressed:(id)sender {
+- (IBAction)workOutsideBtnPressed:(id)sender {
+    
+    __weak typeof (self) weadSelf = self;
     
     KWWorker *currentWorker = [KWWorker worker];
-    [currentWorker postWorkFromHomeMessageToSlack];
-    [KWAttendanceRecord updateAttendanceRecordWorkFromHome:currentWorker.userID withDay:[KWUtil getTodayDateString]];
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    SCLTextView *workLocation = [alert addTextField:@"Ex: Home"];
+    workLocation.keyboardType = UIKeyboardTypeDefault;
+    
+    SCLTextView *startTime = [alert addTextField:@"08:00"];
+    startTime.keyboardType = UIKeyboardTypeDefault;
+    
+    SCLTextView *endTime = [alert addTextField:@"16:00"];
+    startTime.keyboardType = UIKeyboardTypeDefault;
+    
+    [alert addButton:@"Submit" validationBlock:^BOOL{
+        if (workLocation.text.length == 0) {
+            [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the location you work~"];
+            [workLocation becomeFirstResponder];
+            return NO;
+        }
+        
+        if (startTime.text.length == 0) {
+            [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the start time you work outside~"];
+            [startTime becomeFirstResponder];
+            return NO;
+        }
+        
+        if (endTime.text.length == 0) {
+            [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the end time you work outside~"];
+            [endTime becomeFirstResponder];
+            return NO;
+        }
+        
+        return YES;
+    } actionBlock:^{
+    
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy/LL/dd HH:mm"];
+        [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier: @"zh_TW"]];
+        NSString *workStartTime = [NSString stringWithFormat:@"%@ %@",[KWUtil getTodayDateString],startTime.text];
+        NSString *workEndTime = [NSString stringWithFormat:@"%@ %@",[KWUtil getTodayDateString],endTime.text];
+        NSDate *workStartDate = [dateFormat dateFromString:workStartTime];
+        NSDate *workEndDate = [dateFormat dateFromString:workEndTime];
+        
+        BOOL isValidRecord = [KWAttendanceRecord updateAttendanceRecordWorkOutside:currentWorker.userID withDay:[KWUtil getTodayDateString] withLocation:workLocation.text withStartTime:workStartDate withEndTime:workEndDate];
+        if (isValidRecord) {
+            [currentWorker postWorkOutsideMessageToSlack:workLocation.text withStartTime:startTime.text withEndTime:endTime.text];
+        }
+        
+    }];
+    [alert showInfo:self title:@"Work" subTitle:@"Enter the time you want to work outside!" closeButtonTitle:@"Cancel" duration:0];
 }
+
 @end
