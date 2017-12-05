@@ -41,7 +41,7 @@
                 self.checkedCount = 1;
                 break;
             case KWLocationStatusEnterCheck:{
-                if (self.checkedCount >= STATUS_CHECK_THRESHOLD ) {
+                if (self.checkedCount >= ENTER_STATUS_CHECK_THRESHOLD ) {
                     self.currentLocationStatus = KWLocationStatusEnterConfirmed;
                 }
                 else {
@@ -66,7 +66,7 @@
                 self.checkedCount = 1;
                 break;
             case KWLocationStatusLeaveCheck:{
-                if (self.checkedCount >= STATUS_CHECK_THRESHOLD ) {
+                if (self.checkedCount >= LEAVE_STATUS_CHECK_THRESHOLD ) {
                     self.currentLocationStatus = KWLocationStatusLeaveConfirmed;
                 }
                 else {
