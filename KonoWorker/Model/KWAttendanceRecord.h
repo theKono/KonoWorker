@@ -15,10 +15,12 @@
 @property NSString *workRecordYear;
 @property NSString *workRecordMonth;
 @property NSString *workRecordDay;
+@property NSString *workLocation;
 @property NSDate *startTime;
 @property NSDate *leaveTime;
 @property NSInteger duration;
 @property BOOL isPTO;
+@property BOOL isWorkOutside;
 
 + (RLMResults *)getAttendanceRecord:(NSString *)userID;
 
@@ -28,7 +30,7 @@
 
 + (BOOL)updateAttendanceRecordPTO:(NSString *)userID withDay:(NSString *)date withDuration:(NSInteger)duration;
 
-+ (void)updateAttendanceRecordWorkFromHome:(NSString *)userID withDay:(NSString *)date;
++ (BOOL)updateAttendanceRecordWorkOutside:(NSString *)userID withDay:(NSString *)date withLocation:(NSString *)location withStartTime:(NSDate *)start withEndTime:(NSDate *)end;
 
 @end
 

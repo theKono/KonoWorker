@@ -10,17 +10,34 @@
 
 @implementation KWAttendanceRecord
 
+
 + (RLMResults *)getAttendanceRecord:(NSString *)userID {
     
-    return [[KWAttendanceRecord objectsWhere:@"workerID == %@ ",userID] sortedResultsUsingKeyPath:@"workDate" ascending:YES];
+    return [[KWAttendanceRecord objectsWhere:@"workerID == %@ ",userID] sortedResultsUsingKeyPath:@"workDate" ascending:NO];
     
 }
 
 
-+ (KWAttendanceRecord *)getAttendanceRecord:(NSString *)userID withDay:(NSString *)date isForPTO:(BOOL)isPTO{
++ (KWAttendanceRecord *)getAttendancePTORecord:(NSString *)userID withDay:(NSString *)date {
     
     KWAttendanceRecord *attendanceRecord;
-    attendanceRecord = [[KWAttendanceRecord objectsWhere:@"workDate == %@ and workerID == %@ and isPTO == %@",date,userID,[NSNumber numberWithBool:isPTO]] firstObject];
+    attendanceRecord = [[KWAttendanceRecord objectsWhere:@"workDate == %@ and workerID == %@ and isPTO == YES",date,userID] firstObject];
+    
+    return attendanceRecord;
+}
+
++ (KWAttendanceRecord *)getAttendanceRecord:(NSString *)userID withDay:(NSString *)date {
+    
+    KWAttendanceRecord *attendanceRecord;
+    attendanceRecord = [[KWAttendanceRecord objectsWhere:@"workDate == %@ and workerID == %@ and isPTO == NO and isWorkOutside == NO",date,userID] firstObject];
+    
+    return attendanceRecord;
+}
+
++ (KWAttendanceRecord *)getAttendanceWorkOutsideRecord:(NSString *)userID withDay:(NSString *)date {
+    
+    KWAttendanceRecord *attendanceRecord;
+    attendanceRecord = [[KWAttendanceRecord objectsWhere:@"workDate == %@ and workerID == %@ and isPTO == NO and isWorkOutside == YES",date,userID] firstObject];
     
     return attendanceRecord;
 }
@@ -29,7 +46,7 @@
 + (BOOL)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withStartTime:(NSDate *)time {
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date isForPTO:NO];
+    KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date];
     NSArray *timeInfo = [date componentsSeparatedByString:@"/"];
     BOOL isValidRequest = NO;
     if( nil == attendanceRecord ){
@@ -40,9 +57,11 @@
         attendanceRecord.workRecordYear = timeInfo[0];
         attendanceRecord.workRecordMonth = timeInfo[1];
         attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workLocation = @"Kono Taipei Office";
         attendanceRecord.startTime = time;
         attendanceRecord.leaveTime = time;
         attendanceRecord.isPTO = NO;
+        attendanceRecord.isWorkOutside = NO;
         
         // Add to Realm with transaction
         [realm beginWriteTransaction];
@@ -63,7 +82,7 @@
 + (BOOL)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withLeaveTime:(NSDate *)time {
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date isForPTO:NO];
+    KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date];
     NSArray *timeInfo = [date componentsSeparatedByString:@"/"];
     BOOL isValidRequest = NO;
     
@@ -75,9 +94,11 @@
         attendanceRecord.workRecordYear = timeInfo[0];
         attendanceRecord.workRecordMonth = timeInfo[1];
         attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workLocation = @"Kono Taipei Office";
         attendanceRecord.startTime = time;
         attendanceRecord.leaveTime = time;
         attendanceRecord.isPTO = NO;
+        attendanceRecord.isWorkOutside = NO;
         
         // Add to Realm with transaction
         [realm beginWriteTransaction];
@@ -99,7 +120,7 @@
 + (BOOL)updateAttendanceRecordPTO:(NSString *)userID withDay:(NSString *)date withDuration:(NSInteger)duration{
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date isForPTO:YES];
+    KWAttendanceRecord *attendanceRecord = [self getAttendancePTORecord:userID withDay:date];
     NSArray *timeInfo = [date componentsSeparatedByString:@"/"];
     BOOL isValidRequest = NO;
     
@@ -131,12 +152,51 @@
     return  isValidRequest;
 }
 
-+ (void)updateAttendanceRecordWorkFromHome:(NSString *)userID withDay:(NSString *)date {
++ (BOOL)updateAttendanceRecordWorkOutside:(NSString *)userID withDay:(NSString *)date withLocation:(NSString *)location withStartTime:(NSDate *)start withEndTime:(NSDate *)end{
     
-    NSDate *workEndTime = [[NSDate alloc] initWithTimeIntervalSinceNow:8*60*60];
-    [self updateAttendanceRecord:userID withDay:date withStartTime:[NSDate date]];
-    [self updateAttendanceRecord:userID withDay:date withLeaveTime:workEndTime];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    KWAttendanceRecord *attendanceRecord = [self getAttendanceWorkOutsideRecord:userID withDay:date];
+    NSArray *timeInfo = [date componentsSeparatedByString:@"/"];
+    BOOL isValidRequest = NO;
     
+    if( nil == attendanceRecord ){
+        attendanceRecord = [[KWAttendanceRecord alloc] init];
+        attendanceRecord.workerID = userID;
+        attendanceRecord.workDate = date;
+        attendanceRecord.workRecordYear = timeInfo[0];
+        attendanceRecord.workRecordMonth = timeInfo[1];
+        attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workLocation = location;
+        attendanceRecord.startTime = start;
+        attendanceRecord.leaveTime = end;
+        attendanceRecord.isPTO = NO;
+        attendanceRecord.isWorkOutside = YES;
+        attendanceRecord.duration = [end timeIntervalSinceDate:start];;
+        // Add to Realm with transaction
+        [realm beginWriteTransaction];
+        [realm addObject:attendanceRecord];
+        [realm commitWriteTransaction];
+        
+        isValidRequest = YES;
+    }
+    else {
+        if( [attendanceRecord.leaveTime compare:end] == NSOrderedAscending ){
+            //we get an eariler time than local database, update it!
+            [realm beginWriteTransaction];
+            attendanceRecord.leaveTime = end;
+            attendanceRecord.duration = [attendanceRecord.leaveTime timeIntervalSinceDate:attendanceRecord.startTime];
+            [realm commitWriteTransaction];
+            isValidRequest = YES;
+        }
+        if( [attendanceRecord.startTime compare:start] == NSOrderedDescending ){
+            //we get an eariler time than local database, update it!
+            [realm beginWriteTransaction];
+            attendanceRecord.startTime = start;
+            [realm commitWriteTransaction];
+            isValidRequest = YES;
+        }
+    }
+    return  isValidRequest;
 }
 
 
