@@ -8,6 +8,17 @@
 
 #import <Realm/Realm.h>
 
+typedef enum KELeaveRecordStatus : NSUInteger{
+    
+    KELeaveRecordStatusInvalid = 0,
+    KELeaveRecordStatusNew = 1,
+    KELeaveRecordStatusIntermediate = 2,
+    KELeaveRecordStatus6HR = 3,
+    KELeaveRecordStatus8HRAbove = 4
+    
+}KELeaveRecordStatus;
+
+
 @interface KWAttendanceRecord : RLMObject
 
 @property NSString *workerID;
@@ -26,7 +37,7 @@
 
 + (BOOL)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withStartTime:(NSDate *)time;
 
-+ (BOOL)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withLeaveTime:(NSDate *)time;
++ (KELeaveRecordStatus)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withLeaveTime:(NSDate *)time;
 
 + (BOOL)updateAttendanceRecordPTO:(NSString *)userID withDay:(NSString *)date withDuration:(NSInteger)duration;
 

@@ -8,6 +8,9 @@
 
 #import "KWAttendanceRecord.h"
 
+#define ONE_HOUR_BY_SEC 3600
+
+
 @implementation KWAttendanceRecord
 
 
@@ -79,12 +82,12 @@
     return isValidRequest;
 }
 
-+ (BOOL)updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withLeaveTime:(NSDate *)time {
++ (KELeaveRecordStatus )updateAttendanceRecord:(NSString *)userID withDay:(NSString *)date withLeaveTime:(NSDate *)time {
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     KWAttendanceRecord *attendanceRecord = [self getAttendanceRecord:userID withDay:date];
     NSArray *timeInfo = [date componentsSeparatedByString:@"/"];
-    BOOL isValidRequest = NO;
+    KELeaveRecordStatus recordStatus = KELeaveRecordStatusInvalid;
     
     if( nil == attendanceRecord ){
         //insert new reading object
@@ -104,7 +107,7 @@
         [realm beginWriteTransaction];
         [realm addObject:attendanceRecord];
         [realm commitWriteTransaction];
-        isValidRequest = YES;
+        recordStatus = KELeaveRecordStatusNew;
     }
     else if( [attendanceRecord.leaveTime compare:time] == NSOrderedAscending ){
         //we get an eariler time than local database, update it!
@@ -112,9 +115,18 @@
         attendanceRecord.leaveTime = time;
         attendanceRecord.duration = [attendanceRecord.leaveTime timeIntervalSinceDate:attendanceRecord.startTime];
         [realm commitWriteTransaction];
-        isValidRequest = YES;
+        
+        if (attendanceRecord.duration < 6 * ONE_HOUR_BY_SEC){
+            recordStatus = KELeaveRecordStatusIntermediate;
+        }
+        else if (attendanceRecord.duration > 6* ONE_HOUR_BY_SEC && attendanceRecord.duration < 8 * ONE_HOUR_BY_SEC ) {
+            recordStatus = KELeaveRecordStatus6HR;
+        }
+        else {
+            recordStatus = KELeaveRecordStatus8HRAbove;
+        }
     }
-    return isValidRequest;
+    return recordStatus;
 }
 
 + (BOOL)updateAttendanceRecordPTO:(NSString *)userID withDay:(NSString *)date withDuration:(NSInteger)duration{
