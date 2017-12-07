@@ -135,24 +135,24 @@
     startTime.keyboardType = UIKeyboardTypeDefault;
     
     SCLTextView *endTime = [alert addTextField:@"16:00"];
-    startTime.keyboardType = UIKeyboardTypeDefault;
-    
+    endTime.keyboardType = UIKeyboardTypeDefault;
+    __weak typeof (alert) weakAlert = alert;
     [alert addButton:@"Submit" validationBlock:^BOOL{
         if (workLocation.text.length == 0) {
             [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the location you work~"];
-            [workLocation becomeFirstResponder];
+            [weakAlert hideView];
             return NO;
         }
         
         if (startTime.text.length == 0) {
             [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the start time you work outside~"];
-            [startTime becomeFirstResponder];
+            [weakAlert hideView];
             return NO;
         }
         
         if (endTime.text.length == 0) {
             [KWUtil showErrorAlert:weadSelf withErrorStr:@"Please enter the end time you work outside~"];
-            [endTime becomeFirstResponder];
+            [weakAlert hideView];
             return NO;
         }
         
@@ -173,6 +173,7 @@
         }
         
     }];
+    [alert setShouldDismissOnTapOutside:YES];
     [alert showInfo:self title:@"Work" subTitle:@"Enter the time you want to work outside!" closeButtonTitle:@"Cancel" duration:0];
 }
 
