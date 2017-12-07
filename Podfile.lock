@@ -55,6 +55,7 @@ PODS:
   - IGListKit/Default (3.1.1):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.1.1)
+  - Masonry (1.1.0)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Google/SignIn
   - IGListKit (~> 3.0)
+  - Masonry
   - PINRemoteImage
   - Realm
   - SCLAlertView-Objective-C
@@ -88,11 +90,12 @@ SPEC CHECKSUMS:
   GTMOAuth2: be83fd28d63ae3087e7d351b1f39c1a7e24ab6e7
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   SCLAlertView-Objective-C: 0e54351fa4f98a5c7c6ad3727e6dbb46784534e5
 
-PODFILE CHECKSUM: 54f14cc0f8e8823f84f771b6a57c4d0b1077234e
+PODFILE CHECKSUM: 3d2e85b1d1172be0889c0bb1165ef4d4f20eee3b
 
 COCOAPODS: 1.0.1

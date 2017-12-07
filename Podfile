@@ -12,7 +12,7 @@ target 'KonoWorker' do
     pod 'IGListKit', '~> 3.0'
     pod 'PINRemoteImage'
     pod 'AFNetworking', '~> 3.0'
-    
+    pod 'Masonry'
   target 'KonoWorkerTests' do
     inherit! :search_paths
     # Pods for testing

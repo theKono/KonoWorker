@@ -10,6 +10,8 @@
 		0321958EA608CF1F5BF14AD1 /* libPods-KonoWorker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A980E785E9BA05FEB6B70C /* libPods-KonoWorker.a */; };
 		B1B0BCDBEE839AE128C8B320 /* libPods-KonoWorkerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96978F1EFB11AEA6B479C57C /* libPods-KonoWorkerTests.a */; };
 		E2660E10EE3B4BBB9FEDDCF3 /* libPods-KonoWorkerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE74C1AD055FE29AFB8AF6A /* libPods-KonoWorkerUITests.a */; };
+		E84A60BD1FD7FDA500980CB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84A60BC1FD7FDA500980CB0 /* UIKit.framework */; };
+		E858A3811FD7FCD4008C4873 /* KWUIComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E858A3801FD7FCD4008C4873 /* KWUIComponent.m */; };
 		E888BA231FBE9418001B231A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA221FBE9418001B231A /* AppDelegate.m */; };
 		E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA251FBE9418001B231A /* KWLoginViewController.m */; };
 		E888BA291FBE9418001B231A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA271FBE9418001B231A /* Main.storyboard */; };
@@ -59,6 +61,9 @@
 		AAE74C1AD055FE29AFB8AF6A /* libPods-KonoWorkerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KonoWorkerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91515EBF22AB7098ECBB38E /* Pods-KonoWorkerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorkerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorkerUITests/Pods-KonoWorkerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB3E6DE1DDA167B9265745B6 /* Pods-KonoWorker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonoWorker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KonoWorker/Pods-KonoWorker.debug.xcconfig"; sourceTree = "<group>"; };
+		E84A60BC1FD7FDA500980CB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E858A37F1FD7FCD4008C4873 /* KWUIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWUIComponent.h; sourceTree = "<group>"; };
+		E858A3801FD7FCD4008C4873 /* KWUIComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KWUIComponent.m; sourceTree = "<group>"; };
 		E888BA1E1FBE9418001B231A /* KonoWorker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonoWorker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888BA211FBE9418001B231A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E888BA221FBE9418001B231A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84A60BD1FD7FDA500980CB0 /* UIKit.framework in Frameworks */,
 				E888BA561FC2DEA5001B231A /* CoreLocation.framework in Frameworks */,
 				0321958EA608CF1F5BF14AD1 /* libPods-KonoWorker.a in Frameworks */,
 			);
@@ -143,6 +149,7 @@
 		DD33B86166DAAE6703F605F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E84A60BC1FD7FDA500980CB0 /* UIKit.framework */,
 				E888BA551FC2DEA5001B231A /* CoreLocation.framework */,
 				27A980E785E9BA05FEB6B70C /* libPods-KonoWorker.a */,
 				96978F1EFB11AEA6B479C57C /* libPods-KonoWorkerTests.a */,
@@ -223,6 +230,8 @@
 				E888BA611FC6722C001B231A /* KWUtil.m */,
 				E888BA761FCD183F001B231A /* KWNetworkManager.h */,
 				E888BA771FCD183F001B231A /* KWNetworkManager.m */,
+				E858A37F1FD7FCD4008C4873 /* KWUIComponent.h */,
+				E858A3801FD7FCD4008C4873 /* KWUIComponent.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -527,6 +536,7 @@
 				E888BA311FBE9418001B231A /* main.m in Sources */,
 				E888BA5F1FC40075001B231A /* KWAttendanceDataViewController.m in Sources */,
 				E888BA751FCD0620001B231A /* KWMainViewController.m in Sources */,
+				E858A3811FD7FCD4008C4873 /* KWUIComponent.m in Sources */,
 				E888BA621FC6722C001B231A /* KWUtil.m in Sources */,
 				E888BA6A1FCC0905001B231A /* KWLocationManager.m in Sources */,
 				E888BA721FCD0335001B231A /* KWWorker.m in Sources */,
