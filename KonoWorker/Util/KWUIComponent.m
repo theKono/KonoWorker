@@ -19,11 +19,13 @@
     [filterBtn addTarget:handler action:selector forControlEvents:UIControlEventTouchUpInside];
     filterBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 4);
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:filterBtn];
-    [barButton.customView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(@(28));
-        make.height.equalTo(@(44));
-    }];
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)){
+        [barButton.customView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.width.equalTo(@(28));
+            make.height.equalTo(@(44));
+        }];
+    }
     return barButton;
     
 }
@@ -36,10 +38,12 @@
     [sortBtn addTarget:handler action:selector forControlEvents:UIControlEventTouchUpInside];
     sortBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 4, 10, 0);
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:sortBtn];
-    [barButton.customView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(28));
-        make.height.equalTo(@(44));
-    }];
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)){
+        [barButton.customView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(28));
+            make.height.equalTo(@(44));
+        }];
+    }
     return barButton;
     
 }
