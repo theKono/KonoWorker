@@ -116,14 +116,14 @@
         attendanceRecord.duration = [attendanceRecord.leaveTime timeIntervalSinceDate:attendanceRecord.startTime];
         [realm commitWriteTransaction];
         
-        if (attendanceRecord.duration < 6 * ONE_HOUR_BY_SEC){
+        if (attendanceRecord.duration < 7 * ONE_HOUR_BY_SEC){
             recordStatus = KELeaveRecordStatusIntermediate;
         }
-        else if (attendanceRecord.duration > 6* ONE_HOUR_BY_SEC && attendanceRecord.duration < 8 * ONE_HOUR_BY_SEC ) {
-            recordStatus = KELeaveRecordStatus6HR;
+        else if (attendanceRecord.duration > 7* ONE_HOUR_BY_SEC && attendanceRecord.duration < 9 * ONE_HOUR_BY_SEC ) {
+            recordStatus = KELeaveRecordStatus7HR;
         }
         else {
-            recordStatus = KELeaveRecordStatus8HRAbove;
+            recordStatus = KELeaveRecordStatus9HRAbove;
         }
     }
     return recordStatus;

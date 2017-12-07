@@ -129,11 +129,11 @@
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     switch (status) {
-        case KELeaveRecordStatus6HR:
+        case KELeaveRecordStatus7HR:
             notification.alertBody = @"Time to leave? Have a nice day~ Bye!";
             break;
-        case KELeaveRecordStatus8HRAbove:
-            notification.alertBody = @"You work so hard today!!! Tomorrow would be better~";
+        case KELeaveRecordStatus9HRAbove:
+            notification.alertBody = @"You work so hard today!!! Tomorrow will be better~";
             break;
         default:
             break;

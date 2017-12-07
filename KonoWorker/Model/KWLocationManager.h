@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #define ENTER_STATUS_CHECK_THRESHOLD 2
-#define LEAVE_STATUS_CHECK_THRESHOLD 7
+#define LEAVE_STATUS_CHECK_THRESHOLD 4
 
 typedef enum KWLocationStatus : NSUInteger{
     KWLocationStatusUnknown = 0,

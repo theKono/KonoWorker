@@ -13,8 +13,8 @@ typedef enum KELeaveRecordStatus : NSUInteger{
     KELeaveRecordStatusInvalid = 0,
     KELeaveRecordStatusNew = 1,
     KELeaveRecordStatusIntermediate = 2,
-    KELeaveRecordStatus6HR = 3,
-    KELeaveRecordStatus8HRAbove = 4
+    KELeaveRecordStatus7HR = 3,
+    KELeaveRecordStatus9HRAbove = 4
     
 }KELeaveRecordStatus;
 
