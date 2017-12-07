@@ -32,7 +32,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
+    self.tableView.allowsSelection = NO;
     [self setupNavigationBar];
 }
 
