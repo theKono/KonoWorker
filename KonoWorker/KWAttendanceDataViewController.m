@@ -176,7 +176,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
         NSString *startTime = [formatter stringFromDate:record.startTime];
         NSString *leaveTime = [formatter stringFromDate:record.leaveTime];
         
-        displayCell.workDayLabel.text = [NSString stringWithFormat:@"%@ work at %@", record.workDate,record.workLocation];
+        displayCell.workDayLabel.text = [NSString stringWithFormat:@"%@ @%@", record.workDate,record.workLocation];
         displayCell.enterTimeLabel.text = [NSString stringWithFormat:@"Start time:%@",startTime];
         displayCell.leaveTimeLabel.text = [NSString stringWithFormat:@"Leave time:%@",leaveTime];
     }
