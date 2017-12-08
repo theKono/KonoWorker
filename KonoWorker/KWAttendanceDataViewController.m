@@ -63,8 +63,10 @@ static NSString *cellIdentifier = @"cellIdentifier";
         case KWAttendenceRecordFilterNone:
             title = [NSString stringWithFormat:@"All Records (%lu)",(unsigned long)[self.dataArray count]];
             break;
-        case KWAttendenceRecordFilterPTOOnly:
-            title = [NSString stringWithFormat:@"PTO Records (%lu)",(unsigned long)[self.dataArray count]];
+        case KWAttendenceRecordFilterPTOOnly:{
+            NSNumber *totalPTOTime = [self.dataArray sumOfProperty:@"duration"];
+            title = [NSString stringWithFormat:@"PTO Records (Total:%.1f days)",[totalPTOTime doubleValue]/86400.0];
+            }
             break;
         case KWAttendenceRecordFilterWorkDayOnly:
             title = [NSString stringWithFormat:@"Work Records (%lu)",(unsigned long)[self.dataArray count]];
