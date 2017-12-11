@@ -16,7 +16,7 @@
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     // Set the new schema version. This must be greater than the previously used
     // version (if you've never set a schema version before, the version is 0).
-    config.schemaVersion = 3;
+    config.schemaVersion = 4;
     
     // Set the block which will be called automatically when opening a Realm with a
     // schema version lower than the one set above
@@ -31,6 +31,14 @@
                                       
                                       newObject[@"workLocation"] = @"Kono Taipei Office";
                                       newObject[@"isWorkOutside"] = @(NO);
+                                  }];
+        }
+        if (oldSchemaVersion < 4 ) {
+            [migration enumerateObjects:KWAttendanceRecord.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                                        newObject[@"workRecordYear"] = @([oldObject[@"workRecordYear"] integerValue]);
+                                        newObject[@"workRecordMonth"] = @([oldObject[@"workRecordMonth"] integerValue]);
+                                        newObject[@"workRecordDay"] = @([oldObject[@"workRecordDay"] integerValue]);
                                   }];
         }
     };

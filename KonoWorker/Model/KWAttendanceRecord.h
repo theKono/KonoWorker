@@ -23,15 +23,17 @@ typedef enum KELeaveRecordStatus : NSUInteger{
 
 @property NSString *workerID;
 @property NSString *workDate;
-@property NSString *workRecordYear;
-@property NSString *workRecordMonth;
-@property NSString *workRecordDay;
+@property NSInteger workRecordYear;
+@property NSInteger workRecordMonth;
+@property NSInteger workRecordDay;
 @property NSString *workLocation;
 @property NSDate *startTime;
 @property NSDate *leaveTime;
 @property NSInteger duration;
 @property BOOL isPTO;
 @property BOOL isWorkOutside;
+
++ (NSArray *)sortByDateDescriptorWithAscending:(BOOL)ascending;
 
 + (RLMResults *)getAttendanceRecord:(NSString *)userID;
 
