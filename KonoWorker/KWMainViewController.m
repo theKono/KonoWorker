@@ -113,7 +113,11 @@
             NSInteger PTODurationInSec = (totalPTODurationInSec > 86400) ? 86400 : totalPTODurationInSec;
             
             [KWAttendanceRecord updateAttendanceRecordPTO:currentWorker.userID withDay:[KWUtil getDateStringWithDate:PTOStartDate] withDuration:PTODurationInSec];
-            [currentWorker postPTOMessageToSlack:[KWUtil getDateStringWithDate:PTOStartDate] withDuration:PTODurationInSec];
+            [currentWorker postPTORecord:[KWUtil getDateStringWithDate:PTOStartDate] withDuration:PTODurationInSec withComplete:^{
+                [KWUtil showSuccessAlert:weadSelf withString:@"請假紀錄已送出，安心放假囉~"];
+            } fail:^(NSError *error){
+                [KWUtil showErrorAlert:weadSelf withErrorStr:@"請假紀錄未送至遠端，請聯絡工程師check!"];
+            }];
             PTOStartDate = [PTOStartDate dateByAddingTimeInterval:86400];
             totalPTODurationInSec -= 86400;
         }
