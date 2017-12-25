@@ -103,7 +103,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
         allRecords = [allRecords objectsWithPredicate:filterPredicate];
     }
     
-    allRecords = [allRecords sortedResultsUsingKeyPath:@"workDate" ascending:self.sortingMethod];
+    allRecords = [allRecords sortedResultsUsingDescriptors:[KWAttendanceRecord sortByDateDescriptorWithAscending:self.sortingMethod]];
     return allRecords;
     
 }

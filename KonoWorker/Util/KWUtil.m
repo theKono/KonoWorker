@@ -17,6 +17,13 @@
     [alert showWarning:presentViewController title:@"Oops" subTitle:errorDescription closeButtonTitle:@"Done" duration:0.0f];
 }
 
++ (void)showSuccessAlert:(UIViewController *)presentViewController withString:(NSString *)feedbackString {
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    
+    [alert showSuccess:presentViewController title:@"Congratulations" subTitle:feedbackString closeButtonTitle:@"Got it!" duration:0.0f];
+}
+
 + (BOOL)checkDateStringFormat:(NSString *)dateString {
     
     BOOL isValid = NO;

@@ -143,7 +143,7 @@
 
 
 - (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration {
-    
+
     NSString *urlPath = @"https://hooks.slack.com/services/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";
     
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] init];
@@ -174,5 +174,32 @@
     }];
     
 }
+
+- (void)postPTORecord:(NSString *)startDay withDuration:(NSInteger)duration withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock {
+    
+    NSString *urlPath = @"https://hooks.zapier.com/hooks/catch/2823169/86hpnp/";
+    
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] init];
+    
+    [paraDic setObject:self.userName forKey:@"name"];
+    [paraDic setObject:[NSString stringWithFormat:@"%.1lf",duration/86400.0] forKey:@"length"];
+    [paraDic setObject:startDay forKey:@"date"];
+    [paraDic setObject:@"pto" forKey:@"type"];
+    
+    __weak typeof (self) weakSelf = self;
+    
+    [self.manager POST:urlPath parameters:paraDic progress:nil success:^(NSURLSessionTask *task, id responseDic) {
+        
+        [weakSelf postPTOMessageToSlack:startDay withDuration:duration];
+        completeBlock();
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        
+        failBlock(error);
+        
+    }];
+    
+}
+
 
 @end

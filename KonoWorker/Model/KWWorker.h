@@ -21,8 +21,8 @@
 
 - (void)postLeaveNotificationWithStatus:(KELeaveRecordStatus)status;
 
-- (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration;
-
 - (void)postWorkOutsideMessageToSlack:(NSString *)location withStartTime:(NSString *)startTime withEndTime:(NSString *)endTime;
+
+- (void)postPTORecord:(NSString *)startDay withDuration:(NSInteger)duration withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock;
 
 @end

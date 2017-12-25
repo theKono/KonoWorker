@@ -14,9 +14,19 @@
 @implementation KWAttendanceRecord
 
 
++ (NSArray *)sortByDateDescriptorWithAscending:(BOOL)ascending {
+    
+    return @[[RLMSortDescriptor sortDescriptorWithKeyPath:@"workRecordYear" ascending:ascending],
+             [RLMSortDescriptor sortDescriptorWithKeyPath:@"workRecordMonth" ascending:ascending],
+             [RLMSortDescriptor sortDescriptorWithKeyPath:@"workRecordDay" ascending:ascending]];
+    
+}
+
 + (RLMResults *)getAttendanceRecord:(NSString *)userID {
     
-    return [[KWAttendanceRecord objectsWhere:@"workerID == %@ ",userID] sortedResultsUsingKeyPath:@"workDate" ascending:NO];
+    NSArray *sortDescriptor = [self sortByDateDescriptorWithAscending:NO];
+    
+    return [[KWAttendanceRecord objectsWhere:@"workerID == %@ ",userID] sortedResultsUsingDescriptors:sortDescriptor];
     
 }
 
@@ -57,9 +67,9 @@
         attendanceRecord = [[KWAttendanceRecord alloc] init];
         attendanceRecord.workerID = userID;
         attendanceRecord.workDate = date;
-        attendanceRecord.workRecordYear = timeInfo[0];
-        attendanceRecord.workRecordMonth = timeInfo[1];
-        attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workRecordYear = [timeInfo[0] integerValue];
+        attendanceRecord.workRecordMonth = [timeInfo[1] integerValue];
+        attendanceRecord.workRecordDay = [timeInfo[2] integerValue];
         attendanceRecord.workLocation = @"Kono Taipei Office";
         attendanceRecord.startTime = time;
         attendanceRecord.leaveTime = time;
@@ -94,9 +104,9 @@
         attendanceRecord = [[KWAttendanceRecord alloc] init];
         attendanceRecord.workerID = userID;
         attendanceRecord.workDate = date;
-        attendanceRecord.workRecordYear = timeInfo[0];
-        attendanceRecord.workRecordMonth = timeInfo[1];
-        attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workRecordYear = [timeInfo[0] integerValue];
+        attendanceRecord.workRecordMonth = [timeInfo[1] integerValue];
+        attendanceRecord.workRecordDay = [timeInfo[2] integerValue];
         attendanceRecord.workLocation = @"Kono Taipei Office";
         attendanceRecord.startTime = time;
         attendanceRecord.leaveTime = time;
@@ -140,9 +150,9 @@
         attendanceRecord = [[KWAttendanceRecord alloc] init];
         attendanceRecord.workerID = userID;
         attendanceRecord.workDate = date;
-        attendanceRecord.workRecordYear = timeInfo[0];
-        attendanceRecord.workRecordMonth = timeInfo[1];
-        attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workRecordYear = [timeInfo[0] integerValue];
+        attendanceRecord.workRecordMonth = [timeInfo[1] integerValue];
+        attendanceRecord.workRecordDay = [timeInfo[2] integerValue];
         attendanceRecord.isPTO = YES;
         attendanceRecord.duration = duration;
         // Add to Realm with transaction
@@ -175,9 +185,9 @@
         attendanceRecord = [[KWAttendanceRecord alloc] init];
         attendanceRecord.workerID = userID;
         attendanceRecord.workDate = date;
-        attendanceRecord.workRecordYear = timeInfo[0];
-        attendanceRecord.workRecordMonth = timeInfo[1];
-        attendanceRecord.workRecordDay = timeInfo[2];
+        attendanceRecord.workRecordYear = [timeInfo[0] integerValue];
+        attendanceRecord.workRecordMonth = [timeInfo[1] integerValue];
+        attendanceRecord.workRecordDay = [timeInfo[2] integerValue];
         attendanceRecord.workLocation = location;
         attendanceRecord.startTime = start;
         attendanceRecord.leaveTime = end;
