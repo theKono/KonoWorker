@@ -24,6 +24,8 @@ typedef enum KWRequireSettingStatus : NSUInteger{
 
 + (void)showErrorAlert:(UIViewController *)presentViewController withErrorStr:(NSString *)errorDescription;
 
++ (void)showSuccessAlert:(UIViewController *)presentViewController withString:(NSString *)feedbackString;
+
 + (BOOL)checkDateStringFormat:(NSString *)dateString;
 
 + (BOOL)checkDurationFormat:(NSString *)durationString;
