@@ -142,13 +142,25 @@
 }
 
 
-- (void)postPTOMessageToSlack:(NSString *)startDay withDuration:(NSInteger)duration {
+- (void)postDayOffMessageToSlack:(KWDayOffInfo *)dayoffInfo {
 
     NSString *urlPath = @"https://hooks.slack.com/services/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";
     
+    //NSString *testurlPath = @"https://hooks.slack.com/services/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";
+    
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] init];
     
-    [paraDic setObject:[NSString stringWithFormat:@"#PTO %@ %.1lf day",startDay,duration/86400.0] forKey:@"text"];
+    NSString *postMessage;
+    
+    if (dayoffInfo.dayoffComment) {
+        postMessage = [NSString stringWithFormat:@"%@ [%@]  %@ day  %@",dayoffInfo.dayoffType,dayoffInfo.dayoffDate,dayoffInfo.dayoffLength,dayoffInfo.dayoffComment];
+    }
+    else {
+        postMessage = [NSString stringWithFormat:@"%@ [%@]  %@ day  ",dayoffInfo.dayoffType,dayoffInfo.dayoffDate,dayoffInfo.dayoffLength];
+    }
+    
+    
+    [paraDic setObject:postMessage forKey:@"text"];
     [paraDic setObject:self.userName forKey:@"username"];
     
     [self.manager POST:urlPath parameters:paraDic progress:nil success:^(NSURLSessionTask *task, id responseDic) {
@@ -175,22 +187,26 @@
     
 }
 
-- (void)postPTORecord:(NSString *)startDay withDuration:(NSInteger)duration withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock {
+- (void)postPTORecord:(KWDayOffInfo *)dayOffInfo withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock {
     
     NSString *urlPath = @"https://hooks.zapier.com/hooks/catch/2823169/86hpnp/";
     
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] init];
     
-    [paraDic setObject:self.userName forKey:@"name"];
-    [paraDic setObject:[NSString stringWithFormat:@"%.1lf",duration/86400.0] forKey:@"length"];
-    [paraDic setObject:startDay forKey:@"date"];
-    [paraDic setObject:@"pto" forKey:@"type"];
+    [paraDic setObject:dayOffInfo.userName forKey:@"name"];
+    [paraDic setObject:dayOffInfo.dayoffLength forKey:@"length"];
+    [paraDic setObject:dayOffInfo.dayoffDate forKey:@"date"];
+    [paraDic setObject:dayOffInfo.dayoffStartTime forKey:@"startTime"];
+    [paraDic setObject:dayOffInfo.dayoffEndTime forKey:@"endTime"];
+    [paraDic setObject:dayOffInfo.dayoffAgent forKey:@"agent"];
+    [paraDic setObject:dayOffInfo.dayoffComment forKey:@"comment"];
+    [paraDic setObject:dayOffInfo.dayoffType forKey:@"type"];
     
     __weak typeof (self) weakSelf = self;
     
     [self.manager POST:urlPath parameters:paraDic progress:nil success:^(NSURLSessionTask *task, id responseDic) {
         
-        [weakSelf postPTOMessageToSlack:startDay withDuration:duration];
+        [weakSelf postDayOffMessageToSlack:dayOffInfo];
         completeBlock();
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "KWLocalDatabase.h"
+#import "KWDayOffInfo.h"
+
 
 @interface KWWorker : NSObject
 
@@ -23,6 +25,6 @@
 
 - (void)postWorkOutsideMessageToSlack:(NSString *)location withStartTime:(NSString *)startTime withEndTime:(NSString *)endTime;
 
-- (void)postPTORecord:(NSString *)startDay withDuration:(NSInteger)duration withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock;
+- (void)postPTORecord:(KWDayOffInfo *)dayOffInfo withComplete:(void (^)(void))completeBlock fail:(void (^)(NSError *))failBlock;
 
 @end

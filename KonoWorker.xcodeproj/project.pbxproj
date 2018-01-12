@@ -12,6 +12,8 @@
 		E2660E10EE3B4BBB9FEDDCF3 /* libPods-KonoWorkerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE74C1AD055FE29AFB8AF6A /* libPods-KonoWorkerUITests.a */; };
 		E84A60BD1FD7FDA500980CB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84A60BC1FD7FDA500980CB0 /* UIKit.framework */; };
 		E858A3811FD7FCD4008C4873 /* KWUIComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E858A3801FD7FCD4008C4873 /* KWUIComponent.m */; };
+		E872D22620086EF900A2E547 /* KWDayoffFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E872D22520086EF900A2E547 /* KWDayoffFormViewController.m */; };
+		E872D2292008C0C000A2E547 /* KWDayOffInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E872D2282008C0C000A2E547 /* KWDayOffInfo.m */; };
 		E888BA231FBE9418001B231A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA221FBE9418001B231A /* AppDelegate.m */; };
 		E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E888BA251FBE9418001B231A /* KWLoginViewController.m */; };
 		E888BA291FBE9418001B231A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E888BA271FBE9418001B231A /* Main.storyboard */; };
@@ -64,6 +66,10 @@
 		E84A60BC1FD7FDA500980CB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E858A37F1FD7FCD4008C4873 /* KWUIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWUIComponent.h; sourceTree = "<group>"; };
 		E858A3801FD7FCD4008C4873 /* KWUIComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KWUIComponent.m; sourceTree = "<group>"; };
+		E872D22420086EF900A2E547 /* KWDayoffFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWDayoffFormViewController.h; sourceTree = "<group>"; };
+		E872D22520086EF900A2E547 /* KWDayoffFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KWDayoffFormViewController.m; sourceTree = "<group>"; };
+		E872D2272008C0C000A2E547 /* KWDayOffInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWDayOffInfo.h; sourceTree = "<group>"; };
+		E872D2282008C0C000A2E547 /* KWDayOffInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KWDayOffInfo.m; sourceTree = "<group>"; };
 		E888BA1E1FBE9418001B231A /* KonoWorker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonoWorker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888BA211FBE9418001B231A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E888BA221FBE9418001B231A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 				E888BA6B1FCC190A001B231A /* KWAttendanceTableViewCell.h */,
 				E888BA6C1FCC190A001B231A /* KWAttendanceTableViewCell.m */,
 				E888BA6D1FCC190A001B231A /* KWAttendanceTableViewCell.xib */,
+				E872D22420086EF900A2E547 /* KWDayoffFormViewController.h */,
+				E872D22520086EF900A2E547 /* KWDayoffFormViewController.m */,
 				E888BA731FCD0620001B231A /* KWMainViewController.h */,
 				E888BA741FCD0620001B231A /* KWMainViewController.m */,
 				E888BA241FBE9418001B231A /* KWLoginViewController.h */,
@@ -241,6 +249,8 @@
 			children = (
 				E888BA5A1FC3E188001B231A /* KWAttendanceRecord.h */,
 				E888BA5B1FC3E188001B231A /* KWAttendanceRecord.m */,
+				E872D2272008C0C000A2E547 /* KWDayOffInfo.h */,
+				E872D2282008C0C000A2E547 /* KWDayOffInfo.m */,
 				E888BA571FC3DD07001B231A /* KWLocalDatabase.h */,
 				E888BA581FC3DD07001B231A /* KWLocalDatabase.m */,
 				E888BA681FCC0905001B231A /* KWLocationManager.h */,
@@ -534,11 +544,13 @@
 				E888BA781FCD183F001B231A /* KWNetworkManager.m in Sources */,
 				E888BA261FBE9418001B231A /* KWLoginViewController.m in Sources */,
 				E888BA311FBE9418001B231A /* main.m in Sources */,
+				E872D22620086EF900A2E547 /* KWDayoffFormViewController.m in Sources */,
 				E888BA5F1FC40075001B231A /* KWAttendanceDataViewController.m in Sources */,
 				E888BA751FCD0620001B231A /* KWMainViewController.m in Sources */,
 				E858A3811FD7FCD4008C4873 /* KWUIComponent.m in Sources */,
 				E888BA621FC6722C001B231A /* KWUtil.m in Sources */,
 				E888BA6A1FCC0905001B231A /* KWLocationManager.m in Sources */,
+				E872D2292008C0C000A2E547 /* KWDayOffInfo.m in Sources */,
 				E888BA721FCD0335001B231A /* KWWorker.m in Sources */,
 				E888BA6E1FCC190A001B231A /* KWAttendanceTableViewCell.m in Sources */,
 				E888BA591FC3DD07001B231A /* KWLocalDatabase.m in Sources */,

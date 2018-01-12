@@ -19,6 +19,10 @@ typedef enum KWRequireSettingStatus : NSUInteger{
     
 }KWRequireSettingStatus;
 
+@interface KWPickViewField:UITextField
+
+@end
+
 
 @interface KWUtil : NSObject
 

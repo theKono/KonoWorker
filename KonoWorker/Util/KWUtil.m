@@ -8,6 +8,63 @@
 
 #import "KWUtil.h"
 
+@implementation KWPickViewField
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+        UIImageView *rightView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+        [rightView setImage:[UIImage imageNamed:@"btn_dropdown"]];
+        
+        [self setRightView:rightView];
+        
+        [self setRightViewMode:UITextFieldViewModeAlways];
+        
+        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 22)];
+        self.leftView = paddingView;
+        self.leftViewMode = UITextFieldViewModeAlways;
+        
+        self.layer.cornerRadius = 5.0;
+        
+        self.layer.borderColor = [[UIColor colorWithRed:212/255.0 green:207/255.0 blue:193/255.0 alpha:1.0] CGColor];
+        self.layer.borderWidth = 1.0;
+        
+        self.backgroundColor = [UIColor whiteColor];
+        
+    }
+    
+    return self;
+}
+
+
+
+
+- (CGRect) caretRectForPosition:(UITextPosition*) position{
+    
+    return CGRectZero;
+}
+
+- (NSArray *)selectionRectsForRange:(UITextRange *)range{
+    
+    return nil;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    
+    if (action == @selector(copy:) || action == @selector(selectAll:) || action == @selector(paste:)){
+        
+        return NO;
+    }
+    
+    return [super canPerformAction:action withSender:sender];
+}
+
+
+@end
+
+
 @implementation KWUtil
 
 + (void)showErrorAlert:(UIViewController *)presentViewController withErrorStr:(NSString *)errorDescription {

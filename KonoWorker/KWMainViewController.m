@@ -8,6 +8,7 @@
 
 #import "KWMainViewController.h"
 #import "KWAttendanceDataViewController.h"
+#import "KWDayoffFormViewController.h"
 #import "KWWorker.h"
 #import "KWLocalDatabase.h"
 #import "KWUtil.h"
@@ -67,6 +68,16 @@
 
 - (IBAction)ptoBtnPressed:(id)sender {
     
+    UIStoryboard *storyboard;
+    storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    KWDayoffFormViewController *targetVC = [storyboard instantiateViewControllerWithIdentifier:@"KWDayoffFormViewController"];
+    
+    [self.navigationController pushViewController:targetVC animated:YES];
+    /*
+    
+    
     __weak typeof (self) weadSelf = self;
     
     KWWorker *currentWorker = [KWWorker worker];
@@ -123,7 +134,7 @@
         }
     }];
     [alert showInfo:self title:@"PTO" subTitle:@"Enter the date you want to PTO!" closeButtonTitle:@"Cancel" duration:0];
-    
+    */
 }
 
 - (IBAction)workOutsideBtnPressed:(id)sender {
