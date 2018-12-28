@@ -153,10 +153,10 @@
     NSString *postMessage;
     
     if (dayoffInfo.dayoffComment) {
-        postMessage = [NSString stringWithFormat:@"%@ [%@]  %@ day  %@",dayoffInfo.dayoffType,dayoffInfo.dayoffDate,dayoffInfo.dayoffLength,dayoffInfo.dayoffComment];
+        postMessage = [NSString stringWithFormat:@"%@ [%@ ~ %@]  %@ day  %@",dayoffInfo.dayoffType,dayoffInfo.dayoffStartTime,dayoffInfo.dayoffEndTime,dayoffInfo.dayoffLength,dayoffInfo.dayoffComment];
     }
     else {
-        postMessage = [NSString stringWithFormat:@"%@ [%@]  %@ day  ",dayoffInfo.dayoffType,dayoffInfo.dayoffDate,dayoffInfo.dayoffLength];
+        postMessage = [NSString stringWithFormat:@"%@ [%@]  %@ day  ",dayoffInfo.dayoffType,dayoffInfo.dayoffStartTime,dayoffInfo.dayoffLength];
     }
     
     
@@ -195,7 +195,6 @@
     
     [paraDic setObject:dayOffInfo.userName forKey:@"name"];
     [paraDic setObject:dayOffInfo.dayoffLength forKey:@"length"];
-    [paraDic setObject:dayOffInfo.dayoffDate forKey:@"date"];
     [paraDic setObject:dayOffInfo.dayoffStartTime forKey:@"startTime"];
     [paraDic setObject:dayOffInfo.dayoffEndTime forKey:@"endTime"];
     [paraDic setObject:dayOffInfo.dayoffAgent forKey:@"agent"];

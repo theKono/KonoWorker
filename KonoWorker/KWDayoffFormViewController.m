@@ -210,54 +210,57 @@ NSArray *dayOffLengthArray;
 - (IBAction)submitBtnPressed:(id)sender {
     
     KWWorker *currentWorker = [KWWorker worker];
-    NSInteger totalPTODurationInSec = [self.lengthTextField.text floatValue] * 86400;
+    currentWorker.userName = self.nameTextField.text;
+    float ptoLength = [self.lengthTextField.text floatValue];
+    NSInteger totalPTODurationInSec =  ptoLength * 86400;
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy/LL/dd"];
     [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier: @"zh_TW"]];
     NSDate *PTOStartDate = [dateFormat dateFromString:self.dateTextField.text];
-    
+    NSDate *PTOEndDate  = PTOStartDate;
     __block BOOL needShowAlert = YES;
     
+    
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    if( (int)ptoLength < ptoLength ) {
+        dayComponent.hour = 12;
+    }
+    if (ptoLength > 1) {
+        dayComponent.day = (int)ptoLength - 1;
+        NSCalendar *theCalendar = [NSCalendar currentCalendar];
+        PTOEndDate = [theCalendar dateByAddingComponents:dayComponent toDate:PTOStartDate options:0];
+    }
+    
+    KWDayOffInfo *info = [KWDayOffInfo new];
+    info.userName = self.nameTextField.text;
+    info.dayoffType = self.typeTextField.text;
+    info.dayoffAgent = self.agentTextField.text;
+    info.dayoffComment = self.commentTextField.text;
+    info.dayoffStartTime = [KWUtil getDateStringWithDate:PTOStartDate];;
+    info.dayoffEndTime = [KWUtil getDateStringWithDate:PTOEndDate];;
+    info.dayoffLength = [NSString stringWithFormat:@"%.1lf",ptoLength];
+    
+    
+    [currentWorker postPTORecord:info withComplete:^{
+        if( needShowAlert) {
+            [KWUtil showSuccessAlert:self withString:@"請假紀錄已送出，安心放假囉~"];
+            needShowAlert = NO;
+        }
+    } fail:^(NSError *error){
+        [KWUtil showErrorAlert:self withErrorStr:@"請假紀錄未送至遠端，請聯絡工程師check!"];
+    }];
+    
+    /*
     while (totalPTODurationInSec >0) {
         NSInteger PTODurationInSec = (totalPTODurationInSec > 86400) ? 86400 : totalPTODurationInSec;
         
         [KWAttendanceRecord updateAttendanceRecordPTO:currentWorker.userID withDay:[KWUtil getDateStringWithDate:PTOStartDate] withDuration:PTODurationInSec];
-        KWDayOffInfo *info = [KWDayOffInfo new];
-        info.userName = self.nameTextField.text;
-        info.dayoffType = self.typeTextField.text;
-        info.dayoffAgent = self.agentTextField.text;
-        info.dayoffComment = self.commentTextField.text;
-        info.dayoffDate = [KWUtil getDateStringWithDate:PTOStartDate];
-        if (PTODurationInSec == 86400) {
-            info.dayoffStartTime = @"上午 10:00:00";
-            info.dayoffEndTime = @"下午 6:00:00";
-            info.dayoffLength = @"1";
-        }
-        else if ([self.lengthTextField.text isEqualToString:@"0.5"]){
-            info.dayoffStartTime = @"上午 10:00:00";
-            info.dayoffEndTime = @"下午 2:00:00";
-            info.dayoffLength = @"0.5";
-        }
-        else {
-            info.dayoffStartTime = @"上午 10:00:00";
-            info.dayoffEndTime = @"下午 2:00:00";
-            info.dayoffLength = @"0.5";
-        }
         
-        
-        [currentWorker postPTORecord:info withComplete:^{
-            if( needShowAlert) {
-                [KWUtil showSuccessAlert:self withString:@"請假紀錄已送出，安心放假囉~"];
-                needShowAlert = NO;
-            }
-        } fail:^(NSError *error){
-            [KWUtil showErrorAlert:self withErrorStr:@"請假紀錄未送至遠端，請聯絡工程師check!"];
-        }];
         PTOStartDate = [PTOStartDate dateByAddingTimeInterval:86400];
         totalPTODurationInSec -= 86400;
     }
-    
+    */
 }
 
 
