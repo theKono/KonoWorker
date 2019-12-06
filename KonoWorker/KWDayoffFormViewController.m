@@ -9,8 +9,10 @@
 #import "KWDayoffFormViewController.h"
 #import "KWWorker.h"
 #import "KWUtil.h"
+#import "MBProgressHUD.h"
 
 NSArray *dayOffTypeArray;
+NSArray *dayOffTypeGoogleFormArray;
 NSArray *dayOffLengthArray;
 
 @interface KWDayoffFormViewController ()
@@ -36,7 +38,8 @@ NSArray *dayOffLengthArray;
     
     self.navigationItem.title = @"請假表單";
     
-    dayOffTypeArray = @[@"特休#PTO",@"病假",@"事假",@"婚假",@"生理假",@"產假",@"喪假",@"公傷病假",@"產檢假",@"陪產假",@"補休"];
+    dayOffTypeArray = @[@"特休#PTO",@"病假",@"事假",@"婚假",@"產檢假",@"產假",@"喪假",@"陪產假",@"補休",@"生理假",@"在家工作",@"公假"];
+    dayOffTypeGoogleFormArray = @[@"PTO/Annual Leave 特休",@"Sick Leave 病假",@"Personal Leave  事假",@"Wedding Leave 婚假",@"Pregnancy Checkup Leave 產檢假",@"Matenity Leave 產假",@"Bereavement Leave 喪假",@"Paternity Leave 陪產假",@"Lieu 補休(請備註加班日)",@"Menstruation Leave 生理假",@"Work from Home 在家工作",@"Public Leave 公假"];
     dayOffLengthArray = @[@"0.5",@"1",@"2",@"3",@"4",@"5"];
     
     self.nameTextField.delegate = self;
@@ -209,6 +212,8 @@ NSArray *dayOffLengthArray;
 
 - (IBAction)submitBtnPressed:(id)sender {
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     KWWorker *currentWorker = [KWWorker worker];
     currentWorker.userName = self.nameTextField.text;
     float ptoLength = [self.lengthTextField.text floatValue];
@@ -231,10 +236,13 @@ NSArray *dayOffLengthArray;
         NSCalendar *theCalendar = [NSCalendar currentCalendar];
         PTOEndDate = [theCalendar dateByAddingComponents:dayComponent toDate:PTOStartDate options:0];
     }
+    NSUInteger dayoffSelectedIdx = [dayOffTypeArray indexOfObject:self.typeTextField.text];
+    
     
     KWDayOffInfo *info = [KWDayOffInfo new];
     info.userName = self.nameTextField.text;
     info.dayoffType = self.typeTextField.text;
+    info.dayoffTypeGoogleForm = dayOffTypeGoogleFormArray[dayoffSelectedIdx];
     info.dayoffAgent = self.agentTextField.text;
     info.dayoffComment = self.commentTextField.text;
     info.dayoffStartTime = [KWUtil getDateStringWithDate:PTOStartDate];;
@@ -242,13 +250,17 @@ NSArray *dayOffLengthArray;
     info.dayoffLength = [NSString stringWithFormat:@"%.1lf",ptoLength];
     
     
+    
     [currentWorker postPTORecord:info withComplete:^{
         if( needShowAlert) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [KWUtil showSuccessAlert:self withString:@"請假紀錄已送出，安心放假囉~"];
             needShowAlert = NO;
+            
         }
     } fail:^(NSError *error){
         [KWUtil showErrorAlert:self withErrorStr:@"請假紀錄未送至遠端，請聯絡工程師check!"];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     
     /*
