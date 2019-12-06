@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *dayoffType;
+@property (nonatomic, copy) NSString *dayoffTypeGoogleForm;
 @property (nonatomic, copy) NSString *dayoffStartTime;
 @property (nonatomic, copy) NSString *dayoffEndTime;
 @property (nonatomic, copy) NSString *dayoffLength;

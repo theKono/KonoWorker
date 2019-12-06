@@ -127,8 +127,8 @@
         }
         else if (KWLocationStatusLeaveConfirmed == currentStatus ) {
             [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-            KELeaveRecordStatus leaveRecordStatus = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withLeaveTime:[NSDate date]];
-            [currentWorker postLeaveNotificationWithStatus:leaveRecordStatus];
+            //KELeaveRecordStatus leaveRecordStatus = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withLeaveTime:[NSDate date]];
+            //[currentWorker postLeaveNotificationWithStatus:leaveRecordStatus];
         }
         
         if (YES == isValidUpdate) {

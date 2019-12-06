@@ -125,20 +125,22 @@
         return;
     }
     
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.soundName = UILocalNotificationDefaultSoundName;
+    //UILocalNotification *notification = [[UILocalNotification alloc] init];
+    //notification.soundName = UILocalNotificationDefaultSoundName;
     
     switch (status) {
         case KELeaveRecordStatus7HR:
-            notification.alertBody = @"Time to leave? Have a nice day~ Bye!";
+            NSLog(@"Record more than 7HRs");
+            //notification.alertBody = @"Time to leave? Have a nice day~ Bye!";
             break;
         case KELeaveRecordStatus9HRAbove:
-            notification.alertBody = @"You work so hard today!!! Tomorrow will be better~";
+            NSLog(@"Record more than 9HRs");
+            //notification.alertBody = @"You work so hard today!!! Tomorrow will be better~";
             break;
         default:
             break;
     }
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 
@@ -199,7 +201,7 @@
     [paraDic setObject:dayOffInfo.dayoffEndTime forKey:@"endTime"];
     [paraDic setObject:dayOffInfo.dayoffAgent forKey:@"agent"];
     [paraDic setObject:dayOffInfo.dayoffComment forKey:@"comment"];
-    [paraDic setObject:dayOffInfo.dayoffType forKey:@"type"];
+    [paraDic setObject:dayOffInfo.dayoffTypeGoogleForm forKey:@"type"];
     
     __weak typeof (self) weakSelf = self;
     

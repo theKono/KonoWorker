@@ -7,7 +7,7 @@
 //
 
 #import "KWUIComponent.h"
-#import <Masonry.h>
+#import "Masonry.h"
 
 @implementation KWUIComponent
 

@@ -12,7 +12,7 @@
 #import "KWWorker.h"
 #import "KWLocalDatabase.h"
 #import "KWUtil.h"
-#import <PINImageView+PINRemoteImage.h>
+#import "PINImageView+PINRemoteImage.h"
 
 @interface KWMainViewController ()
 
