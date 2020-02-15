@@ -146,7 +146,7 @@
 
 - (void)postDayOffMessageToSlack:(KWDayOffInfo *)dayoffInfo {
 
-    NSString *urlPath = @"https://hooks.slack.com/services/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";
+    NSString *urlPath = @"https://hooks.slack.com/services/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";
     
     //NSString *testurlPath = @"https://hooks.slack.com/services/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";
     
