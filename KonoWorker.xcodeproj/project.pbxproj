@@ -709,13 +709,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
-				DEVELOPMENT_TEAM = KSFL9L3S98;
+				CURRENT_PROJECT_VERSION = 1.4.2;
+				DEVELOPMENT_TEAM = 8JTQDN5GB8;
 				INFOPLIST_FILE = KonoWorker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.worker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -727,13 +727,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
-				DEVELOPMENT_TEAM = KSFL9L3S98;
+				CURRENT_PROJECT_VERSION = 1.4.2;
+				DEVELOPMENT_TEAM = 8JTQDN5GB8;
 				INFOPLIST_FILE = KonoWorker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.worker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thekono.KonoWorker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
