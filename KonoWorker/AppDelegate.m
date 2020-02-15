@@ -32,10 +32,6 @@
     
     [KWLocalDatabase initRealmConfiguration];
     
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    }
-    
     
     self.locationManager = [KWLocationManager sharedInstance];
     self.locationManager.delegate = self;
@@ -113,8 +109,8 @@
     
     if (currentWorker.userID) {
         
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.soundName = UILocalNotificationDefaultSoundName;
+        //UILocalNotification *notification = [[UILocalNotification alloc] init];
+        //notification.soundName = UILocalNotificationDefaultSoundName;
 
         KWLocationStatus currentStatus = [self.locationManager getCurrentLocationStatus:state];
         BOOL isValidUpdate = NO;
@@ -122,17 +118,13 @@
         if ( KWLocationStatusEnterConfirmed == currentStatus ) {
             [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
             isValidUpdate = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withStartTime:[NSDate date]];
-            notification.alertBody = @"Hello~ Work fun!";
+            //notification.alertBody = @"Hello~ Work fun!";
             
         }
         else if (KWLocationStatusLeaveConfirmed == currentStatus ) {
             [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
             //KELeaveRecordStatus leaveRecordStatus = [KWAttendanceRecord updateAttendanceRecord:currentWorker.userID withDay:[KWUtil getTodayDateString] withLeaveTime:[NSDate date]];
             //[currentWorker postLeaveNotificationWithStatus:leaveRecordStatus];
-        }
-        
-        if (YES == isValidUpdate) {
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
     }
 
